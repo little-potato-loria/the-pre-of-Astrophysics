@@ -1,0 +1,7 @@
+\beamer@sectionintoc {1}{Title}{1}{0}{1}
+\beamer@sectionintoc {2}{Setting up}{4}{0}{2}
+\beamer@sectionintoc {3}{Scales}{11}{0}{3}
+\beamer@sectionintoc {4}{Low-Luminosity}{16}{0}{4}
+\beamer@sectionintoc {5}{High-Luminosity}{33}{0}{5}
+\beamer@sectionintoc {6}{Mass of Atmosphere}{37}{0}{6}
+\beamer@sectionintoc {7}{Critical Core Mass}{42}{0}{7}
