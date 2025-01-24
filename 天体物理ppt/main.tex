@@ -218,12 +218,12 @@ Atmosphere exists $\iff R_B \gtrsim R_p \iff M_p \gtrsim M_a$:
 M_a \equiv \frac{c_0^3}{G}\left( \frac{3}{4 \pi G \rho_p} \right)^{1/2} \approx 4.5 \times 10^{-3} M_{\oplus} a_1^{-3/4} \rho_1^{-1/2}
 \end{equation}
 The nebula can be considered homogeneous on the scale of $R_B$ \\
-$\iff R_B \gg h \iff M_p \gtrsim M_{tr}$
+$\iff R_B \ll h \iff M_p \lesssim M_{tr}$
 \begin{equation}
 M_{tr} \equiv \frac{c_0^3}{G \Omega} \approx 12 M_{\oplus} a_1^{3/4}
 \end{equation}
-We can see that: $R_B \lesssim R_H$ and $R_H \lesssim h$, if $R_B \gg h$ \\
-$R_B \gtrsim R_H$ and $R_H \gtrsim h$, if $R_B \ll h$ \\
+We can see that: $R_B \lesssim R_H$ and $R_H \lesssim h$, if $R_B \ll h$ \\
+$R_B \gtrsim R_H$ and $R_H \gtrsim h$, if $R_B \gg h$ \\
 Now we only talk about the situation that:
 \begin{equation}
 M_a \lesssim M_p \lesssim M_{tr}
@@ -345,14 +345,13 @@ $M_p=5 M_{\oplus},a=5AU,P_0 =1.3 \times 10^{-7} \text{bar}, \rho_0 =3 \times 10^
 
 \begin{frame}
 \frametitle{Low-Luminosity Optically Thick}
-We have written a c program and a shell to reproduce the image.The program can be found on \href{https://github.com/little-potato-loria/plot2.git}{董桁宇(Hengyu Dong)'s github}
- \href{run:sm.mp4}{\includegraphics[width=\linewidth]{sm_frame.png}}
+I have written a c program and a shell to reproduce the image.The program can be found on \href{https://github.com/little-potato-loria/plot2.git}{董桁宇(Hengyu Dong)'s github}
  And the results fit well.
 \end{frame}
 
 \begin{frame}
 \frametitle{Low-Luminosity Optically Thin}
-When $\lambda \gtrsim R_B$ the boundary will be optically thin.Deep in the atmosphere (below the photosphere) the gas becomes optically thick because of the increasing density ,while the nebula is also optically thick when$r\gtrsim \lambda$ because it is "thick",so it is:
+When $\lambda \gtrsim R_B$ the boundary will be optically thin.Deep in the atmosphere (below the photosphere) the gas becomes optically thick because of the increasing density ,while the nebula is also optically thick when$r\gg \lambda$ because it is "thick",so it is:
 \begin{table}
 \centering
 \begin{tabular}{|c|c|c|}
@@ -365,7 +364,7 @@ thick & thin & think \\
 \end{table}
 And equation (9) can not be used in the optically thin area.Insteadly, it should be$ T^4\approx {T_0}^4 +L/(16 \pi \sigma r^2)$ then we interpolating between the outer optically thick and intermediate optically thin regions,we get:
 \begin{equation}
-T^4 (r) \approx {T_0}^4 (r)+\frac{L}{16 \pi \sigma r^2}+\frac{3L}{16 \pi \sigma}\int_{\infty}^{r}\frac{\kappa \rho(r')dr'}{{r'}^2}
+T^4 (r) \approx {T_0}^4 (r)+\frac{L}{16 \pi \sigma r^2}+\frac{3L}{16 \pi \sigma}\int_{r}^{\infty}\frac{\kappa \rho(r')dr'}{{r'}^2}
 \end{equation}
 \end{frame}
 
@@ -381,7 +380,7 @@ Because $T\approx T_0$.P and $\rho$ follow equation(29).
 
 \begin{frame}
 \frametitle{Low-Luminosity Optically Thin}
-Define $R_{ph}$ as the radius that $\lambda \sim \partial r/\partial ln P=r^2/R_B$ , So $R_{ph}$ actually means the radius that the atmosphere change from thin to thick.
+Define $R_{ph}$ as the radius that $\lambda = \partial r/\partial ln P$,while$\partial r/\partial ln P=r^2/R_B$ according to equation(29), So $R_{ph}$ actually means the radius that the atmosphere change from thin to thick.
 \begin{equation}
 R_{ph} \approx R_B \frac{1+\alpha}{ln(\lambda /R_B)}
 \end{equation}
@@ -497,12 +496,12 @@ Which is similar to equation (33) $\xi + \nabla_0 (\frac{R_B}{r}-\frac{R_B}{R_a}
 The core is "high-luminosity" if any of the following equations holds true.\\
 For the Optically Thick case:
 \begin{equation}
-\lambda \gg R_B , {R_L}^2 \gtrsim \lambda R_B
+\lambda \ll R_B , {R_L}^2 \gtrsim \lambda R_B
 \end{equation}
 For the Optically Thin case 
 \begin{equation}
 \tag{54}
-R_L \gtrsim R_B , \lambda \gtrsim R_B 
+R_L \gg R_B , \lambda \gg R_B 
 \end{equation}
 When it is Optically Thin,according to equation(36),T is strongly perturbed even $r>R_B$.
 \end{frame}
@@ -510,9 +509,9 @@ When it is Optically Thin,according to equation(36),T is strongly perturbed even
 \begin{frame}
 \frametitle{High-Luminosity Optically Thick}
 Now we will talk about the Optically Thick case, from equation (25),$\nabla_{\infty} \gtrsim \nabla_{ad}$,so the outer convective zone exists.\\
-Same as what we did in equation (43) but $R_a$and$\rho_{conv}$turn to $R_{out}$and$\rho_0$ , besides, $T_0=T_{conv}$
+Same as what we did in equation (49) but $R_a$and$\rho_{conv}$turn to $R_{out}$and$\rho_0$ , besides, $T_0=T_{conv}$
 \begin{equation}
-\rho(r)=\rho_0{(\frac{R_B}{r}-\frac{R_B}{R_{out}})}^{1/(\gamma-1)}
+\rho(r)=\rho_0{[1+\nabla_{ad}(\frac{R_B}{r}-\frac{R_B}{R_{out}})]}^{1/(\gamma-1)}
 \end{equation}
 which shows that $\rho$, P, and T deviate by a factor of $\sim$ 1 from $\rho_0, P_0, T_0 $at $ r \sim R_B$
 \end{frame}
@@ -607,8 +606,9 @@ We can also calculate $M_{atm}$ in High-Luminosity case by equation(52)
 \begin{equation}
 \tag{58}
 M_{atm} = 4 \pi \Psi_2 \rho_0 {R_B}^3 \approx 2.8 \times {10}^{-4} M_{\oplus} {(\frac{M_p}{M_{\oplus}})}^3 {a_1}^{-5/4}
-\Psi_2 \equiv \int_{0}^{1} z^2{(\frac{\nabla_{ad}}{z}-1)}^{1/(\gamma-1)} dz
 \end{equation}
+while,$\Psi_2 \equiv \int_{0}^{1} z^2{(\frac{\nabla_{ad}}{z}+1)}^{1/(\gamma-1)} dz$
+
 The equation can also be used when the inner radiative region exists, because we have said that $R_{rad} \ll R_B$.\\
 The numerical result of $M_{atm}$ is based on $\gamma= 7/5$.
 \end{frame}
@@ -639,12 +639,12 @@ M_{atm}(M_{cr})=\eta M_{cr}
 In the Low-luminosity case using equations (7), (57), and (A1) we can find:
 \begin{equation}
 \tag{60}
-M_{\text{cr}} \approx \left[ \frac{\eta \theta \Omega \Sigma_p a \kappa_0}{64 \pi^2 \Psi_1 \sigma G^3 M_\odot^{1/3}} \left( \frac{k}{\mu} \right)^{4/3} \right]^{3/5}
+M_{\text{cr}} \approx \left[ \frac{\eta \theta \Omega \Sigma_p a \kappa_0}{64 \pi^2 \Psi_1 \sigma G^3 M_\odot^{1/3}} \left( \frac{k}{\mu} \right)^{4} \right]^{3/5}
 \approx \eta_{0.3}^{3/5} \kappa_{0.1}^{3/5} 
 \begin{cases} 
-0.26 \, M_\oplus \, a_{10}^{-9/5}, & \text{slow}, \\
-25 \, M_\oplus \, a_{10}^{-6/5}, & \text{intermediate}, \\
-240 \, M_\oplus \, a_{10}^{-9/10}, & \text{fast},
+0.26 \, M_\oplus \, a_{10}^{-9/5}&, \text{slow}, \\
+25 \, M_\oplus \, a_{10}^{-6/5}&\text{interm.}, \\
+240 \, M_\oplus \, a_{10}^{-9/10}&, \text{fast},
 \end{cases}
 \end{equation}
 And in the High-luminosity case using using equation (58), we can find:
@@ -671,7 +671,3 @@ The (a) part of the picture do not fits well, because of the finite size of the 
 \end{columns}
 \end{frame}
 \end{document}
-
-
-
-
